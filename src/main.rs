@@ -115,7 +115,7 @@ fn run_raylib(rng: &mut Rng) {
         }
 
         if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_P) {
-            dish.save_to_image("image.png", highlight_border);
+            dish.save_to_image(std::path::Path::new("./image.png"), highlight_border);
         }
 
         if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_B) {
@@ -184,7 +184,7 @@ fn generate(size: usize, seed_count: usize, color_step: i32, highlight_border: b
     while !dish.is_done() {
         dish.maybe_step(&mut rng, color_step);
     }
-    dish.save_to_image("image.png", highlight_border);
+    dish.save_to_image(std::path::Path::new("./image.png"), highlight_border);
     let elapsed = start.elapsed();
     println!(
         "generated dish with size {} in time {}s",

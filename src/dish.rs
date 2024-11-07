@@ -180,7 +180,7 @@ impl Dish {
         false
     }
 
-    pub fn save_to_image(&self, path: &str, highlight_border: bool) {
+    pub fn save_to_image(&self, path: &std::path::Path, highlight_border: bool) {
         let mut image = image::ImageBuffer::new(self.states.len() as u32, self.states.len() as u32);
 
         for (x, y, pixel) in image.enumerate_pixels_mut() {
